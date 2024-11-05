@@ -1,48 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
+import {Rating} from "./components/Rating/Rating";
 
 
-function App() {
+function App(props: any) {
     console.log('App rendering')
     return (
         <div>
-            <Title/>
-            <Raiting/>
-            <Accordion/>
-            <Raiting/>
+            <PageTitle title={'This is App component'}/>
+            <PageTitle title={'My friends'}/>
+            Article 1
+            <Rating value={1}/>
+            <Accordion titleValue={'Menu'} collapsed={false}/>
+            <Accordion titleValue={'Users'} collapsed={false}/>
+            Article 2
+            <Rating value={props.raiting}/>
+            <Rating value={3}/>
+            <Rating value={0}/>
         </div>
     );
 }
 
-function Title() {
-    console.log('Title rendering')
-    return (
-        <>This is App component</>
-    );
+type PageTitlePropsType = {
+    title: string
 }
 
-function Raiting() {
-    console.log('rating rendering')
+function PageTitle(props: PageTitlePropsType) {
+    console.log('PageTitle rendering')
     return (
-        <div>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-        </div>
+        <h1>{props.title}</h1>
     );
-}
-
-
-
-function Star() {
-    console.log('star rendering');
-    return (
-        <div>Star</div>
-    )
 }
 
 
