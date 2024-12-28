@@ -8,17 +8,20 @@ function App(props: any) {
     console.log('App rendering')
     return (
         <div>
-            <PageTitle title={'This is App component'}/>
-            <PageTitle title={'My friends'}/>
-            Article 1
-            <Rating value={1}/>
-            <Accordion titleValue={'Menu'} collapsed={true}/>
-            <Accordion titleValue={'Users'} collapsed={true}/>
-            Article 2
-            <Rating value={props.raiting}/>
-            <Rating value={3}/>
-            <Rating value={2}/>
-            <OnOff onOff={false}/>
+            <OnOff on={true}/>
+            <OnOff on={false}/>
+            <OnOff on={true}/>
+            {/*<PageTitle title={'This is App component'}/>*/}
+            {/*<PageTitle title={'My friends'}/>*/}
+            {/*Article 1*/}
+            {/*<Rating value={1}/>*/}
+            {/*<Accordion titleValue={'Menu'} collapsed={true}/>*/}
+            {/*<Accordion titleValue={'Users'} collapsed={true}/>*/}
+            {/*Article 2*/}
+            {/*<Rating value={props.raiting}/>*/}
+            {/*<Rating value={3}/>*/}
+            {/*<Rating value={2}/>*/}
+            {/*<OnOff on={false}/>*/}
         </div>
     );
 }

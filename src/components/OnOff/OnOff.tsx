@@ -1,49 +1,42 @@
-import React from 'react';
-import styled from "styled-components";
-
-export type OnOffPropsType = {
-    onOff: boolean
+type OnOffType = {
+    on: boolean
 }
 
-export const OnOff = (props: OnOffPropsType) => {
-    return (
-        <Wrapper>
-            <StyledBtnOn onOff={props.onOff}>on</StyledBtnOn>
-            <StyledBtnOff onOff={props.onOff}>off</StyledBtnOff>
-            <Marker onOff={props.onOff}></Marker>
-        </Wrapper>
-    );
-};
 
-type StyledBtnProps = {
-    onOff: boolean;
-};
+export function OnOff(props: OnOffType) {
 
-const StyledBtn = styled.button<StyledBtnProps>`
-    width: 100px;
-    height: 60px;
-    border: 3px solid black;
-    color: #3b3b3b;
-    font-size: 20px;
-    font-weight: bold;
-`
+const onStyle = {
+    width: '30px',
+    height: '20px',
+    border: '1px solid black',
+    display: 'inline-block',
+    padding: '2px',
+    backgroundColor: props.on ? 'green' : 'white',
+}
 
-const StyledBtnOn = styled(StyledBtn)`
-    background-color: ${(props) => (props.onOff ? "#4f9625" : "#818181")};
-`
+const offStyle = {
+    width: '30px',
+    height: '20px',
+    border: '1px solid black',
+    display: 'inline-block',
+    marginLeft: '2px',
+    padding: '2px',
+    backgroundColor: props.on ? 'white' : 'red',
+}
 
-const StyledBtnOff = styled(StyledBtn)`
-    background-color: ${(props) => (props.onOff ? "#838383" : "#8c0000")};
-`
+const indicatorStyle = {
+    width: '10px',
+    height: '10px',
+    borderRadius: '5px',
+    border: '1px solid black',
+    display: 'inline-block',
+    marginLeft: '5px',
+    backgroundColor: props.on ? 'green' : 'red',
+}
 
-const Marker = styled.div<StyledBtnProps>`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: ${(props) => (props.onOff ? "#4f9625" : "#8d0000")};;
-`
-
-const Wrapper = styled.div`
-display: flex;
-align-items: center;
-`
+ return <div>
+     <div style={onStyle}>On</div>
+     <div style={offStyle}>Off</div>
+     <div style={indicatorStyle}></div>
+ </div>
+}
