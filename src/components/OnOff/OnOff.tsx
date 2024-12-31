@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 type OnOffType = {
     on: boolean
     onClick: (value: boolean) => void

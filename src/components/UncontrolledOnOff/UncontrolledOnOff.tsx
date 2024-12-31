@@ -1,11 +1,10 @@
 import {useState} from "react";
 
-type OnOffType = {
-    // on: boolean
+type UncontrolledOnOffType = {
+    onChange: (value: boolean) => void
 }
 
-
-export function UncontrolledOnOff(props: OnOffType) {
+export function UncontrolledOnOff(props: UncontrolledOnOffType) {
     console.log('rendering')
     const [on, setOn] = useState(false)
 
@@ -36,9 +35,19 @@ export function UncontrolledOnOff(props: OnOffType) {
         backgroundColor: on ? 'green' : 'red',
     }
 
+    const onCLickTrueHandler = () => {
+        setOn(true)
+        props.onChange(true)
+    }
+
+    const onCLickFalseHandler = () => {
+        setOn(false)
+        props.onChange(false)
+    }
+
     return <div>
-        <div style={onStyle} onClick={ () => { setOn(true) } }>On</div>
-        <div style={offStyle} onClick={ () => { setOn(false) } }>Off</div>
+        <div style={onStyle} onClick={ onCLickTrueHandler }>On</div>
+        <div style={offStyle} onClick={ onCLickFalseHandler }>Off</div>
         <div style={indicatorStyle} ></div>
     </div>
 }

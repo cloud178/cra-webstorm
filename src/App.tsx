@@ -13,11 +13,16 @@ function App(props: any) {
     const [accordionCollapsed, setAccordionCollapsed] = React.useState<boolean>(true);
     const [on, setOn] = React.useState<boolean>(false);
 
+    const abc = (ddd: boolean) => {
+        setOn(ddd)
+    }
 
     return (
         <div className="App">
-            <UncontrolledOnOff/>
-            <OnOff on={on} onClick={setOn}/>
+            <UncontrolledOnOff onChange={setOn}/> {on.toString()}
+            {/*<OnOff on={on} onClick={on => setOn(on)}/>*/}
+            {/*<OnOff on={on} onClick={abc}/>*/}
+            {/*<OnOff on={on} onClick={setOn}/>*/}
 
 
 
@@ -28,7 +33,7 @@ function App(props: any) {
             <Accordion
                 titleValue={'Menu'}
                 accordionCollapsed={accordionCollapsed}
-                onClick={setAccordionCollapsed}
+                onChange={() => setAccordionCollapsed(!accordionCollapsed)}
             />
 
 
