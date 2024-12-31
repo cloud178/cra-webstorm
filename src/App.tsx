@@ -1,35 +1,51 @@
 import React from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
-import {OnOff} from "./components/OnOff/OnOff";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRatting";
+import {OnOff} from "./components/OnOff/OnOff";
 
 function App(props: any) {
+
+    const [ratingValue, setRatingValue] = React.useState<RatingValueType>(0);
+    const [accordionCollapsed, setAccordionCollapsed] = React.useState<boolean>(true);
+    const [on, setOn] = React.useState<boolean>(false);
+
+
     return (
-        <div>
-            <OnOff/>
-            <OnOff/>
-            <OnOff/>
-            <OnOff/>
-            <OnOff/>
-            <OnOff/>
-            <OnOff/>
-            <UncontrolledAccordion titleValue={'Menu'}/>
-            <UncontrolledAccordion titleValue={'Users'}/>
-            <UncontrolledRating />
+        <div className="App">
+            <UncontrolledOnOff/>
+            <OnOff on={on} onClick={setOn}/>
+
+
+
+
+
+            {/*<UncontrolledAccordion titleValue={'Menu'}/>*/}
+
+            <Accordion
+                titleValue={'Menu'}
+                accordionCollapsed={accordionCollapsed}
+                onClick={setAccordionCollapsed}
+            />
+
+
+
+
+            {/*<UncontrolledRating />*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+
             {/*<PageTitle title={'This is App component'}/>*/}
             {/*<PageTitle title={'My friends'}/>*/}
             {/*Article 1*/}
-            {/*<Rating value={1}/>*/}
-            {/*<Accordion titleValue={'Menu'} collapsed={true}/>*/}
             {/*<Accordion titleValue={'Users'} collapsed={true}/>*/}
             {/*Article 2*/}
             {/*<Rating value={props.raiting}/>*/}
             {/*<Rating value={3}/>*/}
             {/*<Rating value={2}/>*/}
-            {/*<OnOff on={false}/>*/}
+            {/*<UncontrolledOnOff on={false}/>*/}
         </div>
     );
 }
