@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 type RatingPropsType = 0 | 1 | 2 | 3 | 4 | 5
 

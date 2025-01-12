@@ -6,7 +6,7 @@ type AccordionPropsType = {
     // collapsed?: boolean;
 }
 
-function UncontrolledAccordion(props: AccordionPropsType) {
+export function UncontrolledAccordion(props: AccordionPropsType) {
 
     const [collapsed, setCollapsed] = useState(false)
 
@@ -43,5 +43,3 @@ function AccordionBody() {
         </div>
     )
 }
-
-export default UncontrolledAccordion;
