@@ -19,16 +19,12 @@ function App(props: any) {
 
     return (
         <div className="App">
-            <UncontrolledOnOff onChange={setOn}/> {on.toString()}
-            {/*<OnOff on={on} onClick={on => setOn(on)}/>*/}
-            {/*<OnOff on={on} onClick={abc}/>*/}
-            {/*<OnOff on={on} onClick={setOn}/>*/}
+            {/*<PageTitle title={'This is App component'}/>*/}
+            {/*<PageTitle title={'My friends'}/>*/}
 
 
-
-
-
-            {/*<UncontrolledAccordion titleValue={'Menu'}/>*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+            {/*<UncontrolledRating />*/}
 
             <Accordion
                 titleValue={'Menu'}
@@ -36,14 +32,14 @@ function App(props: any) {
                 onChange={() => setAccordionCollapsed(!accordionCollapsed)}
             />
 
+            {/*<UncontrolledOnOff onChange={setOn}/> {on.toString()}*/}
 
+            {/*<UncontrolledAccordion titleValue={'Menu'}/>*/}
 
+            {/*<OnOff on={on} onClick={on => setOn(on)}/>*/}
+            {/*<OnOff on={on} onClick={abc}/>*/}
+            {/*<OnOff on={on} onClick={setOn}/>*/}
 
-            {/*<UncontrolledRating />*/}
-            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
-
-            {/*<PageTitle title={'This is App component'}/>*/}
-            {/*<PageTitle title={'My friends'}/>*/}
             {/*Article 1*/}
             {/*<Accordion titleValue={'Users'} collapsed={true}/>*/}
             {/*Article 2*/}
