@@ -6,6 +6,7 @@ import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOf
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRatting";
 import {OnOff} from "./components/OnOff/OnOff";
+import {Select} from "./components/Select/Select";
 
 function App(props: any) {
 
@@ -19,6 +20,7 @@ function App(props: any) {
 
     return (
         <div className="App">
+
             {/*<PageTitle title={'This is App component'}/>*/}
             {/*<PageTitle title={'My friends'}/>*/}
 
@@ -26,11 +28,11 @@ function App(props: any) {
             {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
             {/*<UncontrolledRating />*/}
 
-            <Accordion
-                titleValue={'Menu'}
-                accordionCollapsed={accordionCollapsed}
-                onChange={() => setAccordionCollapsed(!accordionCollapsed)}
-            />
+            {/*<Accordion*/}
+            {/*    titleValue={'Menu'}*/}
+            {/*    accordionCollapsed={accordionCollapsed}*/}
+            {/*    onChange={() => setAccordionCollapsed(!accordionCollapsed)}*/}
+            {/*/>*/}
 
             {/*<UncontrolledOnOff onChange={setOn}/> {on.toString()}*/}
 
