@@ -1,29 +1,17 @@
-.select {
-    position: relative;
-    padding: 4px;
-    width: 150px;
-    font-family: Roboto, sans-serif;
-    border: 1px solid transparent;
-    border-bottom-color: black;
-    transition: border-color 0.2s, border-width 0.2s;
+.select .main {
+    border: 1px solid black;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 40px;
 }
 
-.select:hover {
-    border-color: black;
-    border-radius: 6px;
-}
-
-.select:focus {
-    border-color: #409dff;
-    border-radius: 6px;
-}
-
-.select::after {
-    content: "";
+.items {
     position: absolute;
-    left: 90%;
-    top: 50%;
-    width: 5px;
-    height: 5px;
-    border: solid black;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.item.selected {
+    background-color: blue;
+    color: white;
 }

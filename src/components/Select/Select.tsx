@@ -7,22 +7,46 @@ export type ItemType = {
 }
 
 type SelectPropsType = {
-    value: any
+    value?: any
     onChange: (value: any) => void
     items: ItemType[]
 };
 
 export const Select = (props: SelectPropsType) => {
-    const [value, setValue] = useState<any>(props.value);
-    const [showOptions, setShowOptions] = useState(false)
+
+    const [active, setActive] = useState(false);
+
+    const selectedItem = props.items.find(i => i.value === props.value);
+    const toggleItems = () => {
+        setActive(!active);
+    }
+
+    const onItemClick = (value: any) => {
+        props.onChange(value)
+        toggleItems()
+    }
 
     return (
-        <div tabIndex={0} onBlur={() => setShowOptions(false)} className={s.select}>
-            <div onClick={()=>setShowOptions(!showOptions)} >{value}</div>
-            {showOptions && props.items.map(i => <div onClick={ () => {
-                setValue(i.title)
-                setShowOptions(false)
-            } }>{i.title}</div>)}
-        </div>
+        <>
+            <div className={s.select}>
+                <span className={s.main} onClick={toggleItems}>{selectedItem && selectedItem.title}</span>
+                {
+                    active &&
+                    <div className={s.items}>
+                        {props.items.map(i => {
+                                return (
+                                    <div
+                                        className={s.item + ' ' + (selectedItem === i ? s.selected : '')}
+                                        key={i.value}
+                                        onClick={ () => onItemClick(i.value) }
+                                    >{i.title}
+                                    </div>
+                                )
+                            }
+                        )}
+                    </div>
+                }
+            </div>
+        </>
     );
 };
