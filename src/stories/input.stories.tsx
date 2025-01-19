@@ -1,4 +1,5 @@
 import {ChangeEvent, useRef, useState} from "react";
+import {action} from "@storybook/addon-actions";
 
 export default {
     title: 'input',
@@ -42,6 +43,37 @@ export const GetValueOfUncontrolledInputByButtonPress = () => {
         </>
     );
 };
+
+export const ControlledInput = () => {
+    const [parrentValue, setParrentValue] = useState<string>('');
+
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => setParrentValue(e.currentTarget.value)
+
+    return <input value={parrentValue} onChange={ onChange }  />
+}
+
+export const ControlledCheckbox = () => {
+    const [parrentValue, setParrentValue] = useState<boolean>(true);
+
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => setParrentValue(e.currentTarget.checked)
+
+    return <input type={"checkbox"} checked={parrentValue} onChange={ onChange }  />
+}
+
+export const ControlledSelect = () => {
+    const [parrentValue, setParrentValue] = useState<string | undefined>('2');
+
+    const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        setParrentValue(e.currentTarget.value)
+    }
+
+    return <select value={parrentValue} onChange={onChange}>
+        <option>none</option>
+        <option value={'1'}>Minsk</option>
+        <option value={'2'}>Amsterdam</option>
+        <option value={'3'}>LA</option>
+    </select>
+}
 
 export const ControlledInputWithFixedValue = () => {
     return (
