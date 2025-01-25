@@ -36,7 +36,7 @@ function App(props: any) {
 
             {/*<UncontrolledOnOff onChange={setOn}/> {on.toString()}*/}
 
-            {/*<UncontrolledAccordion titleValue={'Menu'}/>*/}
+            <UncontrolledAccordion titleValue={'Menu'}/>
 
             {/*<OnOff on={on} onClick={on => setOn(on)}/>*/}
             {/*<OnOff on={on} onClick={abc}/>*/}
