@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Accordion } from "./components/Accordion/Accordion";
+import {Accordion} from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
@@ -25,7 +25,7 @@ function App(props: any) {
             {/*<PageTitle title={'My friends'}/>*/}
 
 
-            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+            <Rating value={ratingValue} onClick={setRatingValue}/>
             {/*<UncontrolledRating />*/}
 
             {/*<Accordion*/}
@@ -43,7 +43,6 @@ function App(props: any) {
             {/*<OnOff on={on} onClick={setOn}/>*/}
 
             {/*Article 1*/}
-            {/*<Accordion titleValue={'Users'} collapsed={true}/>*/}
             {/*Article 2*/}
             {/*<Rating value={props.raiting}/>*/}
             {/*<Rating value={3}/>*/}

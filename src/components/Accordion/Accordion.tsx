@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 
 export type ItemType = {
     value: any
@@ -13,33 +13,34 @@ type AccordionPropsType = {
     onCLick: (value: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
+function AccordionSecret(props: AccordionPropsType) {
     console.log('Accordion rendering')
     return <div>
         <AccordionTitle title={props.titleValue} onClick={props.onChange}/>
         {!props.accordionCollapsed && <AccordionBody items={props.items} onCLick={props.onCLick}/>}
     </div>
 }
-
+export const Accordion = React.memo(AccordionSecret)
 
 type AccordionTitlePropsType = {
     title: string
     onClick: () => void
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+function AccordionTitleSecret(props: AccordionTitlePropsType) {
     console.log('AccordionTitle rendering')
     return (
         <h3 onClick={(e) => props.onClick()}>---{props.title}---</h3>
     )
 }
+const AccordionTitle = React.memo(AccordionTitleSecret)
 
 type AccordionBodyPropsType = {
     items: ItemType[]
     onCLick: (value: any) => void
 }
 
-function AccordionBody(props: AccordionBodyPropsType) {
+function AccordionBodySecret(props: AccordionBodyPropsType) {
     console.log('AccordionBody rendering')
     return (
         <div>
@@ -49,3 +50,4 @@ function AccordionBody(props: AccordionBodyPropsType) {
         </div>
     )
 }
+const AccordionBody = React.memo(AccordionBodySecret)

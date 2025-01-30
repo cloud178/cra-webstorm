@@ -1,11 +1,11 @@
-import {useState} from "react";
+import React, {useState} from "react";
 
 type UncontrolledOnOffType = {
     onChange: (value: boolean) => void
     defaultOn?: boolean
 }
 
-export function UncontrolledOnOff(props: UncontrolledOnOffType) {
+function UncontrolledOnOffSecret(props: UncontrolledOnOffType) {
     console.log('rendering')
     const [on, setOn] = useState(props.defaultOn ? props.defaultOn : false);
 
@@ -52,3 +52,4 @@ export function UncontrolledOnOff(props: UncontrolledOnOffType) {
         <div style={indicatorStyle} ></div>
     </div>
 }
+export const UncontrolledOnOff = React.memo(UncontrolledOnOffSecret)
