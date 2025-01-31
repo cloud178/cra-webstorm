@@ -4,6 +4,7 @@ import s from './Select.module.css';
 export type ItemType = {
     value: any
     title: string
+    population?: number
 }
 
 type SelectPropsType = {
@@ -57,8 +58,10 @@ const SelectSecret = (props: SelectPropsType) => {
         }
     }
 
+    const filteredByPopuolationCities = props.items.filter(i => i.population ? i.population > 2_000_000 : null);
+
     return (
-        <>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '80px'}}>
             <div className={s.select} tabIndex={0} onKeyUp={onKeyUpPres}>
                 <span className={s.main} onClick={toggleItems}>{selectedItem && selectedItem.title}</span>
                 {
@@ -79,7 +82,14 @@ const SelectSecret = (props: SelectPropsType) => {
                     </div>
                 }
             </div>
-        </>
+            <div>
+                <button>Show Cities with population more than 2_000_000</button>
+                <button>Show Cities with letter 'a'</button>
+                {filteredByPopuolationCities.map(i => (
+                    <p key={i.value}>{`${i.value} - ${i.title}, ${i.population ?? 'N/A'}`}</p>
+                ))}
+            </div>
+        </div>
     );
 };
 export const Select = React.memo(SelectSecret)
