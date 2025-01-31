@@ -21,7 +21,6 @@ const UsersSecret = (props: { users: string[] }) => {
         })}</div>
     )
 }
-
 const Users = React.memo(UsersSecret)
 
 export const Example1 = () => {
@@ -34,7 +33,7 @@ export const Example1 = () => {
         const newUsers = [...users, 'Sveta' + new Date().getTime()]
         setUsers(newUsers)
     }
-    users.push('aksdfjalskdjflkasdjf')
+    // users.push('aksdfjalskdjflkasdjf')
 
     return (
         <>
