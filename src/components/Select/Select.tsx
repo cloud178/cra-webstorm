@@ -1,4 +1,4 @@
-import React, {useState, KeyboardEvent, useEffect} from "react";
+import React, {useState, KeyboardEvent, useEffect, useMemo} from "react";
 import s from './Select.module.css';
 
 export type ItemType = {
@@ -17,7 +17,8 @@ const SelectSecret = (props: SelectPropsType) => {
 
     const [active, setActive] = useState(false);
     const [hoveredElementValue, setHoveredElementValue] = useState(props.value);
-
+    const InputRef = React.useRef<HTMLInputElement>(null);
+    const [population, setPopulation] = useState<number>(0);
 
     const selectedItem = props.items.find(i => i.value === props.value);
     const hoveredItem = props.items.find(i => i.value === hoveredElementValue);
@@ -58,7 +59,17 @@ const SelectSecret = (props: SelectPropsType) => {
         }
     }
 
-    const filteredByPopuolationCities = props.items.filter(i => i.population ? i.population > 2_000_000 : null);
+    const filteredByPopuolationCities = useMemo(() => {
+        console.log(999)
+        let i = 0
+        while (i < 500000000) {
+            i++
+            Math.random()
+        }
+        return props.items.filter(i => i.population ? i.population > population : null)
+    }, [population])
+
+
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', gap: '80px'}}>
@@ -83,8 +94,13 @@ const SelectSecret = (props: SelectPropsType) => {
                 }
             </div>
             <div>
-                <button>Show Cities with population more than 2_000_000</button>
-                <button>Show Cities with letter 'a'</button>
+                <input ref={InputRef} placeholder={'insert population filter'}/>
+                <button onClick={() => {
+                    if (InputRef.current) {
+                        setPopulation(+InputRef.current.value)
+                        InputRef.current.value = ""
+                    }
+                }}>+</button>
                 {filteredByPopuolationCities.map(i => (
                     <p key={i.value}>{`${i.value} - ${i.title}, ${i.population ?? 'N/A'}`}</p>
                 ))}
