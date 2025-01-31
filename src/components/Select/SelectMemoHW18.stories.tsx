@@ -12,26 +12,20 @@ export default {
 export const DifferentSelects = () => {
     const [value, setValue] = useState('2')
     let [counter, setCounter] = useState(0);
-
-    const items = [
+    const [items, setItems] = useState<ItemType[]>([
         {value: '1', title: 'Minsk', population: 1_800_000},
         {value: '2', title: 'Amsterdam', population: 4_000_000},
         {value: '3', title: 'LA', population: 7_000_000},
-    ]
+    ]);
+
 
     const itemsWithLetterM = useMemo(() => {
-       return items.filter(i => i.title.toLowerCase().indexOf('m') !== -1)
-    }, [])
+        return items.filter(i => i.title.toLowerCase().indexOf('m') !== -1)
+    }, [items])
 
     const itemsWithPopulationMoreThanTwoMillion = useMemo(() => {
-       return items.filter(i => i.population > 2_000_000)
-    }, [])
-
-    // const itemsWithLetterM = items.filter(i => i.title.toLowerCase().indexOf('m') !== -1)
-    //
-    //
-    // const itemsWithPopulationMoreThanTwoMillion = items.filter(i => i.population > 2_000_000)
-
+        return items.filter(i => i.population ? i.population > 2_000_000 : null)
+    }, [items])
 
 
     return (
