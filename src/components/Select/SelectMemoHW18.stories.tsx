@@ -2,6 +2,8 @@ import {ItemType, Select} from "./Select";
 import {action} from "@storybook/addon-actions";
 import {useState} from "react";
 
+// todo нормально сделать домашку по инструкции
+
 export default {
     title: 'SelectMemoHW18',
     component: Select
